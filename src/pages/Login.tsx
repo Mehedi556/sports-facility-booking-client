@@ -44,7 +44,7 @@ const Login = () => {
         
     }
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-indigo-700">
+        <div className="flex items-center justify-center min-h-screen bg-gradient">
 
             <div className="bg-white p-4 sm:p-8 m-3 sm:m-0 rounded-lg shadow-lg w-full max-w-sm">
                 <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">Login</h2>
@@ -61,8 +61,10 @@ const Login = () => {
                     </div>
 
                     <button type="submit"
-                        className="w-full px-4 py-3 font-semibold text-white bg-gradient-to-r from-blue-300 to-indigo-700 rounded-lg  transition duration-300">Sign
+                        className="w-full px-4 py-3 font-semibold text-white bg-gradient hover:bg-hover-gradient rounded-lg  transition ease-in-out duration-300">Sign
                         In</button>
+
+
                     <p className="text-xs font-light text-gray-500 text-center">
                         Don’t have an account yet? <NavLink to="/signup" className="text-sm font-medium text-blue-500 hover:underline ">Sign up</NavLink>
                     </p>

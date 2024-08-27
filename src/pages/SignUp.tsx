@@ -41,7 +41,7 @@ const SignUp = () => {
         
     }
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-indigo-700">
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-indigo-600">
 
             <div className="bg-white p-4 sm:p-8 m-3 sm:m-0 rounded-lg shadow-lg w-full max-w-sm">
                 <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">Sign Up</h2>
