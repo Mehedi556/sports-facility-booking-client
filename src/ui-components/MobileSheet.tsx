@@ -8,7 +8,7 @@ import {
     SheetHeader,
     SheetTrigger,
   } from "@/components/ui/sheet"
-import { Building2, CircleUserRound, House, LandPlot, PhoneCall, ShoppingBag, SlidersVertical, Sprout } from "lucide-react"
+import { Building2, CircleUserRound, House, LandPlot, PhoneCall } from "lucide-react"
 import { NavLink } from "react-router-dom"
 
 
