@@ -1,50 +1,40 @@
-# React + TypeScript + Vite
+#  Sports Facility Booking Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Modern technologies were used in the project of the Sports Facility Booking app's client side, which provides customers with an easy-to-use and good experience when browsing and booking facilities.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## All Technologies used in this project:
 
-## Expanding the ESLint configuration
+React is used on the client side of the Sports Facility Booking website to create dynamic pages.
+Redux is used to handle user info.
+Page navigation is handled by React Router DOM.
+Form input is managed using React Hook Form.
+Tailwind CSS is used for styling.
+ShadCN helps with component design.
+Sonner used for notifications.
+Lucide-react used for professional icons.
+Zod used for validity of all form inputs.
+JWT used for authorization.
+Swiper for slider.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Instruction for run this project
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+First of all you need to clone the repository. Here is the repository link:
+https://github.com/Mehedi556/sports-facility-booking-client
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+In the command prompt, full command is ( git clone https://github.com/Mehedi556/sports-facility-booking-client.git )
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Then go to the downloaded repository by cd (repository name) or manually.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Secondly install all the dependencies by write in the terminal
+
+    npm install 
+
+
+To run the application in development mode, use the following command: 
+
+    npm run dev
+
+
+### For any questions about this project, just send me a message to salam.mehedi99@gmail.com. I will try my best to reply as early as possible. Thank you..
