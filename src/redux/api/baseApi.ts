@@ -4,6 +4,10 @@ import { RootState } from "../store";
 import { toast } from "sonner";
 import { logout, setUser } from "../features/auth/authSlice";
 
+interface ErrorResponse {
+  message: string;
+}
+
 const baseQuery = fetchBaseQuery({ 
     baseUrl: 'http://localhost:5000/api',
     credentials: 'include',
@@ -25,16 +29,16 @@ DefinitionType
     let result = await baseQuery(args, api, extraOptions);
 
     if (result?.error?.status === 404) {
-      toast.error(result.error.data.message);
+      const errorData = result?.error?.data as ErrorResponse;
+      toast.error(errorData?.message);
     }
 
     if (result?.error?.status === 403) {
-      toast.error(result.error.data.message);
+      const errorData = result?.error?.data as ErrorResponse;
+    toast.error(errorData?.message);
     }
     
   if (result?.error?.status === 401) {
-    //* Send Refresh
-    console.log('Sending refresh token');
 
     const res = await fetch('http://localhost:5000/api/auth/refresh-token', {
       method: 'POST',
