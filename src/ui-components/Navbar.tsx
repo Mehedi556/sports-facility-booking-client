@@ -1,13 +1,39 @@
-import { Menu } from "lucide-react"
+import { LayoutDashboard, LogOut, Menu } from "lucide-react"
 import MobileSheet from "./MobileSheet"
 import { NavLink } from "react-router-dom"
 import logo from "../assets/logo.png"
+import { logout, TUser, useCurrentToken } from "@/redux/features/auth/authSlice"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { verifyToken } from "@/utils/verifyToken"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
-const Navbar = () => {
+
+
+const Navbar = ({ width }: { width: string }) => {
+    const token = useAppSelector(useCurrentToken);
+    let user;
+    if (token) {
+        user = verifyToken(token)
+    }
+
+    const dispatch = useAppDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout());
+    }
+
+
+
     return (
         <div className="max-w-full">
-            <nav className="bg-gradient text-white">
-                <div className="max-w-[1020px] flex items-center justify-between mx-auto py-1 sm:py-3 px-3 lg:px-0">
+            <nav className="bg-gradient text-white px-5">
+                <div className={`max-w-${width} flex items-center justify-between mx-auto py-1 sm:py-3 px-0 lg:px-0`}>
                     <NavLink to="/" className="flex items-center space-x-3">
                         <img src={logo} className="h-12 w-14" alt="Nursery Logo" />
                         <span className="self-center text-xl sm:text-2xl font-bold whitespace-nowrap">Sports Club</span>
@@ -30,21 +56,58 @@ const Navbar = () => {
 
                             <NavLink to="/about" className="block py-2 px-3 md:hover:text-gray-200 md:p-0">About us</NavLink>
 
-                            <NavLink to="/about" className="block py-2 px-3 md:hover:text-gray-200 md:p-0">Contact us</NavLink>
+                            <NavLink to="/contact" className="block py-2 px-3 md:hover:text-gray-200 md:p-0">Contact us</NavLink>
 
                         </ul>
                     </div>
 
                     <div className="flex justify-center items-center md:order-2">
-                        <div className="hidden md:flex gap-x-1 ">
-                            <NavLink to="/login" className="">
-                                <button className="py-0.5">Log in</button>
-                            </NavLink>
-                            <button disabled className="text-xs text-gray-400">-or-</button>
-                            <NavLink to="/signup" className="">
-                                <button className="border rounded-sm px-2 py-0.5">Sign up</button>
-                            </NavLink>
-                        </div>
+                        {
+                            (user as TUser)?.role ?
+                                (
+                                    <TooltipProvider>
+                                        <Tooltip>
+                                            <TooltipTrigger className="hidden md:block">
+                                                <div className="flex justify-center items-center md:order-2">
+                                                    <Avatar>
+                                                        <AvatarImage src="https://github.com/shadcn.png" />
+                                                        <AvatarFallback>CN</AvatarFallback>
+                                                    </Avatar>
+                                                </div>
+                                            </TooltipTrigger>
+                                            <TooltipContent className="flex flex-col gap-y-2">
+                                                <NavLink to={`/${(user as TUser)?.role}`} className="flex gap-x-2 items-center hover:bg-slate-100 p-2 rounded-sm">
+                                                    <LayoutDashboard />
+                                                    <button>Dashboard</button>
+                                                </NavLink>
+                                                <button onClick={handleLogout} className="flex gap-x-2 items-center text-red-600 hover:text-white hover:bg-red-600 p-2 rounded-sm">
+                                                    <LogOut />
+                                                    <p>Logout</p>
+                                                </button>
+                                            </TooltipContent>
+                                        </Tooltip>
+                                    </TooltipProvider>
+
+
+                                )
+                                :
+                                (
+                                    <div className="hidden md:flex gap-x-1 ">
+                                        <NavLink to="/login" className="">
+                                            <button className="py-0.5">Log in</button>
+                                        </NavLink>
+                                        <button disabled className="text-xs text-gray-400">-or-</button>
+                                        <NavLink to="/signup" className="">
+                                            <button className="border rounded-sm px-2 py-0.5">Sign up</button>
+                                        </NavLink>
+                                    </div>
+                                )
+                        }
+
+
+
+
+
 
 
                         <MobileSheet>

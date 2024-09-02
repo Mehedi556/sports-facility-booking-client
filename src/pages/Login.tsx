@@ -6,15 +6,16 @@ import { verifyToken } from "@/utils/verifyToken";
 import { SubmitHandler, useForm } from "react-hook-form"
 import { 
     NavLink, 
-    // useNavigate 
+    useNavigate 
 } from "react-router-dom"
 import { toast } from "sonner";
 
 
 const Login = () => {
-    // const navigate = useNavigate();
+const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login] = useLoginMutation();
+
     const {
         register,
         handleSubmit,
@@ -26,12 +27,14 @@ const Login = () => {
 
         try {
             const res = await login(data);
+            console.log(res);
             const user = verifyToken(res?.data?.token)
             dispatch(setUser({
                 user,
                 token: res?.data?.token
             }))
             toast.success('Logged in', { id: toastId, duration: 2000 })
+            navigate(`/${res?.data?.data?.role}`)
             reset({
                 email: '',
                 password: ''
