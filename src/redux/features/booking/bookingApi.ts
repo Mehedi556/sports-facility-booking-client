@@ -13,9 +13,12 @@ const bookingApi = baseApi.injectEndpoints({
     }),
 
     getAllBookingsForAdmin: builder.query({
-      query: () => {
+      query: (queryData) => {
+        const { page, limit } = queryData;
         return {
-          url: `/bookings`,
+          url: `/bookings` +
+          (page ? `?page=${page}` : "") +
+            (limit ? `&limit=${limit}` : ""),
           method: "GET",
         };
       }

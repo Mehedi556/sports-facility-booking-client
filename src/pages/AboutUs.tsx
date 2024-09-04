@@ -2,12 +2,12 @@
 const AboutUs = () => {
   return (
     <div className="max-w-full bg-gray-100">
-      <div className="flex flex-col gap-y-5 sm:gap-y-10 py-12 max-w-[1024px] mx-auto">
+      <div className="flex flex-col gap-y-5 sm:gap-y-10 py-12 max-w-[1280px] mx-auto">
 
       <section className="text-center mb-12">
         <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-color-primary">Our Mission</h2>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          At our Sports Club, we aim to provide an environment where individuals of all ages can enjoy physical activity, develop skills, and foster a sense of community. <br /> <br /> We are committed to promoting healthy lifestyles, encouraging teamwork, and offering high-quality facilities to ensure that every member reaches their full potential. Through dedication, innovation, and a passion for sports, we strive to be a leader in creating a vibrant and inclusive sports culture.
+        <p className="text-lg text-gray-700  mx-auto">
+          At our Sports Club, we aim to provide an environment where individuals of all ages can enjoy physical activity, develop skills, and foster a sense of community.  <br /> We are committed to promoting healthy lifestyles, encouraging teamwork, and offering high-quality facilities to ensure that every member reaches their full potential. Through dedication, innovation, and a passion for sports, we strive to be a leader in creating a vibrant and inclusive sports culture.
         </p>
       </section>
 
@@ -39,9 +39,9 @@ const AboutUs = () => {
 
       <section className="mb-12">
         <h2 className="text-2xl sm:text-4xl font-bold mb-4 text-center text-color-primary">Our Journey</h2>
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           <div className="timeline-content">
-            <p className="text-gray-600 text-center p-1">For over a decade, our Sports Club has been at the heart of fostering athletic excellence and community spirit. What began as a small initiative has grown into a thriving hub for sports enthusiasts of all ages. We've expanded our facilities, introduced diverse programs, and cultivated a community that values health, teamwork, and sportsmanship. <br /> <br />
+            <p className="text-gray-600 text-center p-1">For over a decade, our Sports Club has been at the heart of fostering athletic excellence and community spirit. What began as a small initiative has grown into a thriving hub for sports enthusiasts of all ages. We've expanded our facilities, introduced diverse programs, and cultivated a community that values health, teamwork, and sportsmanship. <br /> 
 
               From local competitions to regional tournaments, our journey has been one of continuous growth and achievement. Today, we stand proud as a leading sports club, dedicated to empowering athletes, nurturing talent, and creating lasting memories on and off the field.</p>
           </div>

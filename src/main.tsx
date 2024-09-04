@@ -7,12 +7,14 @@ import { Provider } from 'react-redux'
 import { persistor, store } from './redux/store.ts'
 import { Toaster } from './components/ui/sonner.tsx'
 import { PersistGate } from 'redux-persist/integration/react'
+import GoToTop from './ui-components/GoToTop.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <RouterProvider router={router} />
+        <GoToTop />
       </PersistGate>
       <Toaster />
     </Provider>

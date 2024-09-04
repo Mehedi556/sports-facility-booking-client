@@ -27,16 +27,11 @@ const formatDate = (newDate: any) => {
 
 const BookingManagement = () => {
     const [page, setPage] = useState(1)
-    const filter = {
-        filterProperty: '',
-        filterValue: ''
-    };
 
     const limit = 6;
     const queryData = {
         page,
         limit,
-        filter
     }
     const { data, isLoading } = useGetAllBookingsForAdminQuery(queryData);
 

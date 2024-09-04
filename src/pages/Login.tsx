@@ -27,7 +27,6 @@ const navigate = useNavigate();
 
         try {
             const res = await login(data);
-            console.log(res);
             const user = verifyToken(res?.data?.token)
             dispatch(setUser({
                 user,

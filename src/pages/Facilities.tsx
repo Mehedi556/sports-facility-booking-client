@@ -52,8 +52,8 @@ const Facilities = () => {
     }
     return (
         <div>
-            <h1 className="text-center font-bold text-xl mt-5">All Products</h1>
-            <div className="max-w-[1024px] mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center lg:grid-cols-3 my-5 gap-5">
+            <h1 className="text-center font-bold text-xl sm:text-2xl mt-5">All Products</h1>
+            <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 justify-items-center items-center lg:grid-cols-3 my-5 gap-5">
                 <div className="relative">
                     <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg className="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -78,7 +78,7 @@ const Facilities = () => {
 
 
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-[1024px] justify-items-center mx-auto py-6 sm:py-10 px-3 lg:px-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[1280px] justify-items-center mx-auto py-6 sm:py-10 px-3 lg:px-0">
                 {
                     modifiedData?.map((item: TFacility, i: number) => (<FacilityCard key={i} item={item} />))
                 }

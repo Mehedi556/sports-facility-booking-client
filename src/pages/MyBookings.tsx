@@ -56,7 +56,7 @@ const MyBookings = () => {
                                 <TableCell className="">
                                     <div className="flex justify-end">
                                         <CancelBookingModal _id={item?._id as string}>
-                                        <button className="text-xs flex items-center space-x-1 md:space-x-2 p-1 lg:p-2 md:text-sm hover:bg-red-600 hover:text-white  rounded border border-red-500 text-red-600">
+                                        <button disabled={item?.isBooked == 'canceled'} className="text-xs flex items-center space-x-1 md:space-x-2 p-1 lg:p-2 md:text-sm hover:bg-red-600 hover:text-white  rounded border border-red-500 text-red-600">
                                             <CircleX className="" size={16} />
                                             <p>Cancel</p>
                                         </button>

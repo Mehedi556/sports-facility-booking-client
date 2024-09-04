@@ -86,3 +86,40 @@
   align-items: center;
 }
 
+
+/* for top button  */
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.top-btn {
+  font-size: 2.4rem;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background-color: rgb(79 70 229); /* Replace this with your desired color */
+  box-shadow: var(--shadow-color); /* Replace this with your desired shadow */
+  border-radius: 50%;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) { /* Replace 768px with your mobile breakpoint */
+  .top-btn {
+    right: 0;
+    left: 10%;
+  }
+}
+

@@ -131,19 +131,19 @@ const MobileSheet = ({ children }: { children: ReactNode }) => {
                         </NavLink>
                     </SheetClose>
                     <SheetClose onClick={() => { setSheetOpen(false) }}>
-                        <NavLink to="/products" className="flex items-center gap-x-3">
+                        <NavLink to="/facilities" className="flex items-center gap-x-3">
                             <LandPlot className="text-color-primary h-6 w-6" />
                             <p className="text-md">Facilities</p>
                         </NavLink>
                     </SheetClose>
                     <SheetClose onClick={() => { setSheetOpen(false) }}>
-                        <NavLink to="/manage-products" className="flex items-center gap-x-3">
+                        <NavLink to="/about" className="flex items-center gap-x-3">
                             <Building2 className="text-color-primary h-6 w-6" />
                             <p className="text-md" >About us</p>
                         </NavLink>
                     </SheetClose>
                     <SheetClose onClick={() => { setSheetOpen(false) }}>
-                        <NavLink to="/manage-products" className="flex items-center gap-x-3">
+                        <NavLink to="/contact" className="flex items-center gap-x-3">
                             <PhoneCall className="text-color-primary h-6 w-6" />
                             <p className="text-md">Contact us</p>
                         </NavLink>

@@ -4,6 +4,7 @@ import { useGetSingleFacilityQuery } from "@/redux/features/facility/facilityApi
 import { useAppSelector } from "@/redux/hooks";
 import { verifyToken } from "@/utils/verifyToken";
 import { NavLink, useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 
 const FacilityDetails = () => {
@@ -48,14 +49,23 @@ const FacilityDetails = () => {
                 <span className="font-bold text-3xl bg-color-simple rounded-md px-3 py-1 ml-1">${data?.data?.pricePerHour}</span>
                 <span className="text-xs font-medium ml-1">per hour</span>
             </p>
-            <NavLink to={`/${(user as TUser)?.role}/booking/${data?.data?._id}`}>
+            {
+                (user as TUser)?.role == 'admin' ? <Button 
+                onClick={() => { toast.error('Booking page is only for users, not for admins.')}} 
+                className="bg-gradient px-3 py-1.5 text-sm font-bold text-white rounded-md mt-12 w-full hover:bg-hover-gradient shadow-sm"
+            >
+                Book Now
+            </Button>
+            :
+            <NavLink to={ (user as TUser)?.role == 'user' ? `/${(user as TUser)?.role}/booking/${data?.data?._id}` : '/login'}>
                 <Button 
-                onClick={() => { }} 
                 className="bg-gradient px-3 py-1.5 text-sm font-bold text-white rounded-md mt-12 w-full hover:bg-hover-gradient shadow-sm"
             >
                 Book Now
             </Button>
             </NavLink>
+            }
+            
             
         </div>
     </div>

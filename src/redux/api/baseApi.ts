@@ -4,15 +4,18 @@ import { RootState } from "../store";
 import { toast } from "sonner";
 import { logout, setUser } from "../features/auth/authSlice";
 
+
 interface ErrorResponse {
   message: string;
 }
 
 const baseQuery = fetchBaseQuery({ 
     baseUrl: 'https://sports-facility-booking-nine.vercel.app/api',
+    // baseUrl: 'http://localhost:5000/api',
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
+    
 
     if(token){
         headers.set('authorization', token)
@@ -39,16 +42,18 @@ DefinitionType
     }
     
   if (result?.error?.status === 401) {
+    console.log(result?.error?.status);
 
-    const res = await fetch('http://localhost:5000/api/auth/refresh-token', {
+    const res = await fetch('https://sports-facility-booking-nine.vercel.app/api/auth/refresh-token', {
       method: 'POST',
       credentials: 'include',
     });
 
     const data = await res.json();
-    console.log(data);
+    
+    
 
-      if (data?.data?.accessToken) {
+      if (data?.data?.accessToken && !(api.getState() as RootState).auth.user) {
       const user = (api.getState() as RootState).auth.user;
 
       api.dispatch(
