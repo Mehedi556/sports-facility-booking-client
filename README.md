@@ -2,6 +2,13 @@
 
 Modern technologies were used in the project of the Sports Facility Booking app's client side, which provides customers with an easy-to-use and good experience when browsing and booking facilities.
 
+## Live link
+    https://sports-facility-booking-client-iota.vercel.app/
+
+
+## Admin Credentials
+    Email: admin@admin.com
+    password: admin
 
 ## All Technologies used in this project:
 
