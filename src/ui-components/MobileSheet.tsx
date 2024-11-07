@@ -8,7 +8,7 @@ import {
     SheetHeader,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { Building2, CircleUserRound, House, LandPlot, LayoutDashboard, LogOut, NotebookPen, NotepadText, PhoneCall, UserCog } from "lucide-react"
+import { Building2, CircleUserRound, House, LandPlot, LayoutDashboard, ListPlus, LogOut, NotebookPen, NotepadText, PhoneCall, UserCog } from "lucide-react"
 import { NavLink } from "react-router-dom"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { logout, TUser, useCurrentToken } from "@/redux/features/auth/authSlice"
@@ -69,6 +69,12 @@ const MobileSheet = ({ children }: { children: ReactNode }) => {
                                                     <NavLink to={`/${(user as TUser)?.role}/facility-management`} className="flex items-center gap-x-3">
                                                         <NotepadText className="text-color-primary h-6 w-6" />
                                                         <p className="text-md" >Facility Management</p>
+                                                    </NavLink>
+                                                </SheetClose>
+                                                <SheetClose onClick={() => { setSheetOpen(false) }}>
+                                                    <NavLink to={`/${(user as TUser)?.role}/create-facility`} className="flex items-center gap-x-3">
+                                                        <ListPlus className="text-color-primary h-6 w-6" />
+                                                        <p className="text-md" >Create Facility</p>
                                                     </NavLink>
                                                 </SheetClose>
                                                 <SheetClose onClick={() => { setSheetOpen(false) }}>

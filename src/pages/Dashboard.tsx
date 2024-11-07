@@ -23,8 +23,8 @@ const Dashboard = () => {
     return (
         <div className="flex flex-col-reverse md:flex-row h-full justify-center m-3 bg-gradient rounded-lg w-12/12">
             <div className="p-5 lg:p-10 flex-1 mt-0 md:mt-10 lg:mt-20">
-                <p className="text-white font-semibold pt-0 sm:pt-5">{formattedDate}</p>
-                <p className="text-white font-bold text-xl sm:text-3xl mt-5 sm:mt-10">Welcome back, <span className="text-3xl sm:text-5xl">{data?.data?.name}</span>! <br /> Let's achieve something great today.</p>
+                <p className="text-colorText font-semibold pt-0 sm:pt-5">{formattedDate}</p>
+                <p className="text-colorText font-bold text-xl sm:text-3xl mt-5 sm:mt-10">Welcome back, <span className="text-3xl sm:text-5xl">{data?.data?.name}</span>! <br /> Let's achieve something great today.</p>
             </div>
             <div className="flex-1 mt-0 md:mt-4 lg:mt-10">
                 <Lottie animationData={welcome} loop={true} />

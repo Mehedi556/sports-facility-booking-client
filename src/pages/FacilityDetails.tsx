@@ -16,6 +16,7 @@ const FacilityDetails = () => {
     const { id } = useParams();
 
     const { data, isLoading } = useGetSingleFacilityQuery(id);
+    console.log(data);
 
     if (isLoading) {
         return <div className="flex justify-center align-middle items-center w-full h-screen">
@@ -23,59 +24,80 @@ const FacilityDetails = () => {
         </div>
     }
     return (
-        <>
-        <div className="max-w-[1024px] mx-3 lg:mx-auto flex flex-col md:flex-row gap-6 py-12">
-    <div className="w-full md:w-3/5 flex justify-center">
-        <img 
-            className="rounded-lg object-cover object-center max-h-[500px] shadow-md bg-gradient shadow-color-simple border p-3 border-color-simple"
-            src={data?.data?.image} 
-            alt={data?.data?.name || "Facility Image"} 
-        />
-    </div>
-    <div className="w-full md:w-2/5">
-        <div className="p-6 border border-color-simple rounded-lg  shadow-md shadow-color-simple">
-            {/* Optional tagline */}
-            <p className="text-color-primary font-semibold text-lg">Experience Top-Quality Squash Facilities</p>
-            <p className="font-bold mt-2">Name: 
-                <span className="text-zinc-600 text-3xl ml-1">{data?.data?.name}</span>
-            </p>
-            <p className="font-bold mt-3">Description: 
-                <span className="text-zinc-600 text-base ml-1">{data?.data?.description}</span>
-            </p>
-            <p className="font-bold mt-4">Location: 
-                <span className="bg-color-simple px-2 py-1 text-sm text-black rounded-md font-medium ml-1">{data?.data?.location}</span>
-            </p>
-            <p className="font-bold mt-6">Price: 
-                <span className="font-bold text-3xl bg-color-simple rounded-md px-3 py-1 ml-1">${data?.data?.pricePerHour}</span>
-                <span className="text-xs font-medium ml-1">per hour</span>
-            </p>
-            {
-                (user as TUser)?.role == 'admin' ? <Button 
-                onClick={() => { toast.error('Booking page is only for users, not for admins.')}} 
-                className="bg-gradient px-3 py-1.5 text-sm font-bold text-white rounded-md mt-12 w-full hover:bg-hover-gradient shadow-sm"
-            >
-                Book Now
-            </Button>
-            :
-            <NavLink to={ (user as TUser)?.role == 'user' ? `/${(user as TUser)?.role}/booking/${data?.data?._id}` : '/login'}>
-                <Button 
-                className="bg-gradient px-3 py-1.5 text-sm font-bold text-white rounded-md mt-12 w-full hover:bg-hover-gradient shadow-sm"
-            >
-                Book Now
-            </Button>
-            </NavLink>
-            }
-            
-            
+<div className="min-h-screen bg-white py-16 px-4">
+    {/* Facility Details Container */}
+    <div className="w-[1280px] mx-auto bg-white rounded-lg shadow-2xl overflow-hidden">
+        {/* Image Section */}
+        <div className="relative">
+            <img 
+                src={data?.data?.image} 
+                alt={data?.data?.name || "Facility Image"} 
+                className="w-full h-[400px] object-cover rounded-t-lg"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-t-lg"></div>
+            <h2 className="absolute bottom-4 left-6 text-white text-3xl font-extrabold">{data?.data?.name}</h2>
+        </div>
+
+        {/* Content Section */}
+        <div className="p-8 space-y-8">
+            {/* Tagline */}
+            <div className="text-center">
+                <p className="text-lg font-medium text-colorText mb-1">Premium Squash Facilities for Every Player</p>
+                <p className="text-sm text-colorText">Our squash courts provide the perfect setting for a top-quality experience.</p>
+            </div>
+
+            {/* Information Section */}
+            <div className="grid grid-cols-1 gap-6">
+                <div>
+                    <h3 className="font-semibold text-lg">Location</h3>
+                    <p className="bg-colorBg text-sm text-white font-medium px-2 py-1 rounded-lg inline-block mt-1">
+                        {data?.data?.location}
+                    </p>
+                </div>
+                <div>
+                    <h3 className="font-semibold text-lg">Description</h3>
+                    <p className="text-gray-700 text-sm mt-1">{data?.data?.description}</p>
+                </div>
+            </div>
+
+            {/* Pricing Section */}
+            <div className="flex flex-col items-center border-t border-colorText pt-6">
+                <p className="text-lg font-semibold text-colorText">Price</p>
+                <p className="text-3xl font-bold text-colorText">${data?.data?.pricePerHour}</p>
+                <span className="text-xs text-colorText mt-1">per hour</span>
+            </div>
+
+            {/* Action Button */}
+            <div className="text-center mt-8">
+                {(user as TUser)?.role === 'admin' ? (
+                    <Button 
+                        onClick={() => { toast.error('Booking page is only for users, not for admins.') }}
+                        className="w-full max-w-xs bg-gradient px-4 py-3 font-bold text-colorText rounded-lg transition shadow-md shadow-colorText hover:text-white hover:bg-colorBg"
+                    >
+                        Book Now
+                    </Button>
+                ) : (
+                    <NavLink to={(user as TUser)?.role === 'user' ? `/${(user as TUser)?.role}/booking/${data?.data?._id}` : '/login'}>
+                        <Button 
+                            className="w-full max-w-xs bg-gradient px-4 py-3 font-bold text-white rounded-lg transition hover:bg-hover-gradient shadow-md"
+                        >
+                            Book Now
+                        </Button>
+                    </NavLink>
+                )}
+            </div>
         </div>
     </div>
-</div>
-{/* Additional text below the facility details */}
-<div className="max-w-[1024px] mx-auto mt-8 text-center text-gray-700 text-base shadow-md p-3 shadow-color-simple rounded-md">
-    <p>Ready to Play? Book your spot in just a few clicks and enjoy a premium sports experience. Our facilities are maintained to the highest standards, ensuring a safe and enjoyable environment for all players. Don't miss out—reserve your time now!</p>
+
+    {/* Additional Info Section */}
+    <div className="max-w-7xl mx-auto mt-12 p-6 bg-gradient rounded-lg shadow-md text-center">
+        <p className="text-colorText">
+            Ready to elevate your game? Book now to secure your spot and enjoy premium facilities in a world-class environment. 
+            Our courts are maintained for peak performance and safety. Don't miss out on the ultimate squash experience!
+        </p>
+    </div>
 </div>
 
-        </>
     )
 }
 

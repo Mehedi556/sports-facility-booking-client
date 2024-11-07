@@ -12,8 +12,8 @@ import { EffectFade, Autoplay, Pagination, Navigation } from 'swiper/modules';
 const Testimonials = () => {
     return (
         <div>
-            <h1 className="text-center font-semibold sm:font-bold text-xl sm:text-3xl pt-16 lg:pt-28">Our Customer Reviews</h1>
-            <div className="max-w-[1280px] mx-2 sm:mx-2 lg:mx-auto pt-10 sm:pt-14 pb-6 px-3 lg:px-0">
+            <h1 className="text-center font-semibold sm:font-bold text-xl sm:text-3xl pt-16 lg:pt-28 text-colorText">Our Customer Reviews</h1>
+            <div className="max-w-[1280px] mx-2 sm:mx-2 lg:mx-auto pt-10  pb-6 px-3 lg:px-0">
                 <div className='h-[40%] mt-3 p-0 bg-gradient rounded-md shadow-xl shadow-color-simple'>
                     <Swiper
                         spaceBetween={30}

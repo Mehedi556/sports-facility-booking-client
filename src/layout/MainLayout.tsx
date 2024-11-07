@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom"
 
 const MainLayout = () => {
     return (
-        <div className="max-w-full">
+        <div className="max-w-full ">
             <Navbar width={'[1280px]'}/>
             <div className="min-h-screen">
                 <Outlet />

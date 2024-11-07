@@ -7,7 +7,7 @@ import instagram from "../assets/icons/instagram.png"
 const Footer = () => {
   return (
     <div className='bg-gradient'>
-            <div className="max-w-[1024px] mx-auto text-white grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 align-items-center py-5">
+            <div className="max-w-[1024px] mx-auto text-colorText grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 align-items-center py-5">
                 <div className='text-center sm:text-left flex flex-col items-center col-span-3 sm:col-span-1'>
                     <h1 className='font-semibold mb-2'>More Links</h1>
                     <div className='text-sm flex flex-col gap-y-1'>
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
                 <div className="col-span-3 sm:col-span-2 md:col-span-1 mt-6 sm:mt-6 md:mt-0">
                     <p className="text-xs text-center font-semibold">Who we are</p>
-                    <h1 className='text-xs text-center text-gray-300 px-1 sm:px-3'>Your go-to platform for easy and seamless sports facility bookings, designed for everyone from casual players to serious athletes.</h1>
+                    <h1 className='text-xs text-center text-colorText px-1 sm:px-3'>Your go-to platform for easy and seamless sports facility bookings, designed for everyone from casual players to serious athletes.</h1>
                     <div className='text-sm text-center mt-5 '>
                         <p>© 2024 <br /> Sports Club <br /> All Rights Reserved.</p>
                         

@@ -101,8 +101,8 @@
   width: 3rem;
   height: 3rem;
   color: #fff;
-  background-color: rgb(79 70 229); /* Replace this with your desired color */
-  box-shadow: var(--shadow-color); /* Replace this with your desired shadow */
+  background-color: #01004A;
+  box-shadow: var(--shadow-color);
   border-radius: 50%;
   position: fixed;
   bottom: 5rem;

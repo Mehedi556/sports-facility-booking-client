@@ -1,72 +1,61 @@
 const ContactUs = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-300 to-indigo-600 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-white">
-            Contact Us
-          </h2>
-          <p className="mt-2 text-base text-white">
-          Your thoughts and inquiries matter to us. Please take a moment to complete the form below and connect with us directly...
-          </p>
+    <div className="flex justify-center items-center min-h-screen bg-white px-4">
+      <div className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl w-full shadow-colorText">
+        {/* Contact Information Section */}
+        <div className="bg-gradient text-colorText p-8 md:w-1/3 flex flex-col justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
+            <div className="space-y-4">
+              <p className="flex items-center space-x-2">
+                <span>📍</span>
+                <span>23, Haque Heritage<br />Dhaka, Bangladesh</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <span>📧</span>
+                <span>salam.mehedi99@gmail.com</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <span>👤</span>
+                <span>Abdus Salam Mehedi</span>
+              </p>
+              <p className="flex items-center space-x-2">
+                <span>📞</span>
+                <span>880+ 1791097139</span>
+              </p>
+            </div>
+          </div>
+          <div className="flex space-x-4 mt-8">
+            {/* Social Media Icons */}
+            <a href="#" className="text-white hover:text-gray-300">🐦</a>
+            <a href="#" className="text-white hover:text-gray-300">📸</a>
+            <a href="#" className="text-white hover:text-gray-300">💼</a>
+          </div>
         </div>
 
-        <form className="mt-8 space-y-3 sm:space-y-6 bg-indigo-300 p-6 sm:p-8 rounded-lg shadow-lg">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
+        {/* Contact Form Section */}
+        <div className="p-8 md:w-2/3 w-full text-colorText">
+          <h2 className="text-2xl font-semibold  mb-4">Get in Touch</h2>
+          <p className=" mb-6">Feel free to drop us a line below!</p>
+          <form className="space-y-4">
             <input
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Your Name"
+              type="text"
+              placeholder="Your name"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 border-colorText"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
             <input
-              className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Your Email"
+              type="email"
+              placeholder="Your email"
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 border-colorText"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Subject
-            </label>
-            <input
-              className="mt-1  w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Subject"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Message
-            </label>
             <textarea
-              className="mt-1  w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-              placeholder="Your Message"
+              placeholder="Type your message here..."
+              className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 border-colorText"
             />
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Submit
+            <button className="w-full bg-gradient text-colorText py-3 rounded-md font-semibold  transition duration-300">
+              SEND
             </button>
-          </div>
-        </form>
-
-        <div className="mt-12 text-center text-white">
-          <h3 className="text-xl font-bold">Contact Details</h3>
-          <p className="mt-2">Phone: +880 234 567 890</p>
-          <p className="mt-2">Email: support@sportsclub.com</p>
-          <p className="mt-2">Address: 134, Haque Heritage, Banani, Dhaka, Bangladesh</p>
+          </form>
         </div>
       </div>
     </div>

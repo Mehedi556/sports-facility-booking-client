@@ -18,6 +18,7 @@ const Booking = () => {
     const { data, isLoading } = useGetSingleFacilityQuery(id);
 
     const { data: availableSlots } = useCheckAvailabilityQuery(query, { skip: !query.date });
+    console.log(availableSlots);
 
     const [ createBooking ] = useCreateBookingMutation();
 
@@ -26,6 +27,7 @@ const Booking = () => {
     };
 
     const handleCreateOrder = async () => {
+      toast.loading('Progress loading.. Please wait.');
         const data = {
             facility: id,
             date: newDate,
@@ -39,6 +41,22 @@ const Booking = () => {
             window.location.href = res?.data?.data?.payment_url;
         }
     }
+
+    const handleSlotClick = (slot: string) => {
+      // If start time is empty, set the clicked slot as the start time
+      if (!startTime) {
+          setStartTime(slot);
+      } 
+      // If start time is set and end time is empty, set the clicked slot as the end time
+      else if (!endTime) {
+          setEndTime(slot);
+      } 
+      // If both start and end times are already set, reset them and start a new selection
+      else {
+          setStartTime(slot);
+          setEndTime('');
+      }
+  };
     
     if (isLoading) {
         return <div className="flex justify-center align-middle items-center w-full h-screen">
@@ -46,21 +64,21 @@ const Booking = () => {
         </div>
     }
   return (
-    <div>
+    <div className="bg-gradient m-3 rounded-lg min-h-screen text-colorText">
        
          <div className="p-4">
       <div className="shadow-lg shadow-color-simple rounded-md ">
         <img src={data?.data?.image} alt={data?.data?.name} className="w-full h-64 object-cover object-center p-2" />
         <div className="p-4">
           <h2 className="text-2xl font-bold">{data?.data?.name}</h2>
-          <p className="text-gray-600">{data?.data?.description}</p>
-          <p className="text-gray-800 mt-2"><strong>Location:</strong> {data?.data?.location}</p>
-          <p className="text-gray-800 mt-2"><strong>Price per Hour:</strong> ${data?.data?.pricePerHour}</p>
+          <p className="">{data?.data?.description}</p>
+          <p className=" mt-2"><strong>Location:</strong> {data?.data?.location}</p>
+          <p className=" mt-2"><strong>Price per Hour:</strong> ${data?.data?.pricePerHour}</p>
         </div>
       </div>
 
-      <div className="mt-6">
-        <div className="flex items-center space-x-4">
+      <div className="mt-6 w-full">
+        <div className="flex items-center space-x-4 justify-center">
           <input
             type="date"
             value={newDate}
@@ -70,7 +88,7 @@ const Booking = () => {
           <button
           disabled={!newDate}
             onClick={checkAvailableSlot}
-            className="p-2 bg-gray-600 text-white rounded-md"
+            className="p-2 bg-colorBg text-white rounded-md"
           >
             Check Availability
           </button>
@@ -82,9 +100,17 @@ const Booking = () => {
             <h3 className="text-lg font-semibold">Available Slots</h3>
             <div className="grid grid-cols-3 gap-4 mt-2">
               {availableSlots?.data?.map((slot:any, index:number) => (
-                <div key={index} className="bg-gradient text-white p-2 rounded-md text-center">
-                  {slot.startTime}
-                </div>
+                <button
+                key={index}
+                onClick={() => handleSlotClick(slot.startTime)}
+                className={`p-2 rounded-md text-center ${
+                    slot.startTime === startTime || slot.startTime === endTime
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-colorBg text-white'
+                }`}
+            >
+                {slot.startTime}
+            </button>
               ))}
             </div>
           </div>
@@ -94,7 +120,7 @@ const Booking = () => {
         <div className="mt-6">
           <div className="flex space-x-4">
             <div className="flex-1">
-              <label className="block text-gray-700">Start Time</label>
+              <label className="block">Start Time</label>
               <input
                 type=""
                 id="startTime"
@@ -104,7 +130,7 @@ const Booking = () => {
               />
             </div>
             <div className="flex-1">
-              <label className="block text-gray-700">End Time</label>
+              <label className="block">End Time</label>
               <input
                 type=""
                 id="endTime"
@@ -114,7 +140,7 @@ const Booking = () => {
               />
             </div>
           </div>
-          <button onClick={handleCreateOrder} className="mt-4 w-full p-2 bg-gray-600 text-white rounded-md">
+          <button onClick={handleCreateOrder} className="mt-4 w-full p-2 bg-colorBg text-white rounded-md">
             Proceed to Pay
           </button>
         </div>

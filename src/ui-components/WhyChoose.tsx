@@ -42,18 +42,18 @@ const sections = [
 
 const WhyChoose = () => {
     return (
-        <div className='max-w-full'>
-            <h1 className="text-center font-bold text-xl pt-16">Why Choose Our Platform?</h1>
+        <div className='max-w-full pb-16'>
+            <h1 className="text-center text-colorText font-bold text-xl sm:text-3xl pt-16 lg:pt-28">Why Choose Our Platform?</h1>
 
-            <div className="max-w-[1024px] mx-2 sm:mx-2 lg:mx-auto pt-10 sm:pt-14 pb-6">
+            <div className="max-w-[1024px] mx-2 sm:mx-2 lg:mx-auto pt-10 pb-16">
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-5'>
                     {sections.map((section, index) => (
-                        <div key={index} className='p-3 rounded-md shadow-md shadow-color-simple border border-color-simple'>
-                            <h1 className='text-center font-semibold text-sm sm:text-lg'>{section.title}</h1>
+                        <div key={index} className='p-3 rounded-md shadow-md shadow-color-simple border border-colorText'>
+                            <h1 className='text-center font-semibold text-sm sm:text-lg text-colorText'>{section.title}</h1>
                             <div className='flex flex-col items-center gap-5 mt-2'>
-                                <img src={section?.icon} className='w-20 h-20 ' />
+                                <img src={section?.icon} className='w-20 h-20' />
 
-                                <p className='text-xs sm:text-sm text-center mt-[-10px] text-zinc-500'>{section?.description}</p>
+                                <p className='text-xs sm:text-sm text-center mt-[-10px] text-colorText'>{section?.description}</p>
 
                             </div>
                         </div>

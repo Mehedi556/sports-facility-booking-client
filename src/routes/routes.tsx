@@ -6,6 +6,7 @@ import AdminManagement from "@/pages/AdminManagement";
 import Booking from "@/pages/Booking";
 import BookingManagement from "@/pages/BookingManagement";
 import ContactUs from "@/pages/ContactUs";
+import CreateFacility from "@/pages/CreateFacility";
 import Dashboard from "@/pages/Dashboard";
 import Facilities from "@/pages/Facilities";
 import FacilityDetails from "@/pages/FacilityDetails";
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             {
                 path: "facility-management",
                 element: <FacilityManagement />
+            },
+            {
+                path: "create-facility",
+                element: <CreateFacility />
             },
             {
                 path: "booking-management",

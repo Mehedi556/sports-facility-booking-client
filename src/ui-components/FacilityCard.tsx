@@ -23,22 +23,22 @@ const FacilityCard = ({ item }: { item: TFacility }) => {
 
             <div className="px-3 pb-3">
 
-                <h5 className="text-lg font-semibold tracking-tight pt-2 text-gray-900">{item?.name}</h5>
-                <p className="text-xs text-gray-600 ">{item?.description.substring(0, 100)}</p>
+                <h5 className="text-lg font-bold tracking-tight pt-2 text-colorText">{item?.name}</h5>
+                <p className="text-xs text-colorText ">{item?.description.substring(0, 100)}</p>
 
                 <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl font-bold text-gray-900">${item?.pricePerHour} <span className="text-[10px] font-normal ml-[-5px]">per hour</span></span>
+                    <span className="text-2xl font-bold text-colorText">${item?.pricePerHour} <span className="text-[10px] font-normal ml-[-5px]">per hour</span></span>
                     <div className="flex justify-around gap-x-2 pt-1">
                         <NavLink to={`/facility-details/${item?._id}`}>
-                            <Button className="text-black hover:text-white border border-color-simple bg-white hover:bg-color-simple  focus:outline-none font-medium rounded-sm text-xs px-4 py-2 text-center">See Details</Button>
+                            <Button className="text-colorText hover:text-white border border-colorText bg-white hover:bg-colorBg   focus:outline-none font-medium rounded-sm text-sm px-4 py-2 text-center">See Details</Button>
                         </NavLink>
 
                         {
                             (user as TUser)?.role == 'admin' ? <Button 
-                            onClick={() => { toast.error('Booking page is only for users, not for admins.')}} className="text-white bg-gradient hover:bg-hover-gradient  focus:outline-none font-medium rounded-sm text-xs px-4 py-2 text-center">Book facility</Button>
+                            onClick={() => { toast.error('Booking page is only for users, not for admins.')}} className="text-colorText bg-gradient hover:bg-colorBg hover:text-white  focus:outline-none font-medium rounded-sm text-sm px-4 py-2 text-center">Book facility</Button>
                             :
                             <NavLink to={ (user as TUser)?.role == 'user' ? `/${(user as TUser)?.role}/booking/${item?._id}` : '/login'}>
-                            <Button className="text-white bg-gradient hover:bg-hover-gradient  focus:outline-none font-medium rounded-sm text-xs px-4 py-2 text-center">Book facility</Button>
+                            <Button className="text-colorText bg-gradient hover:bg-colorBg hover:text-white focus:outline-none font-medium rounded-sm text-sm px-4 py-2 text-center">Book facility</Button>
                         </NavLink>
                         }
 

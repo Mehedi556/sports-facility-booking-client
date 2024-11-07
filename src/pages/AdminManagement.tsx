@@ -37,77 +37,87 @@ const AdminManagement = () => {
 
   }
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-300 to-indigo-600">
+    <div className="min-h-screen flex flex-col items-center bg-gradient text-colorText m-3 rounded-lg">
+      {/* Header */}
+      <header className="max-w-3xl w-full mt-12 mb-8 text-center">
+        <h1 className="text-4xl font-bold">Create New Admin Account</h1>
+        <p className="mt-3 text-sm ">
+          Fill out the form below to add a new admin user. Make sure all information is accurate and meets platform guidelines.
+        </p>
+      </header>
 
-      <div className="bg-white p-4 sm:p-8 m-3 sm:m-0 rounded-lg shadow-lg w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">Create New Admin</h2>
-
-        <form onSubmit={handleSubmit(onSubmit)}>
-
-          <div className="space-y-3 sm:space-y-1">
-            <div className="mb-2 space-y-1">
-            <label htmlFor="" className="text-xs font-semibold">Name</label>
-            <input type="text" {...register("name")}
-              className="peer w-full px-4 py-2 text-gray-900 bg-gray-100 border-b-2 border-gray-300 rounded-md focus:outline-none transition duration-300 focus:border-blue-500" placeholder="Admin name..." />
-            {
-              errors?.name && (
-                <p className="text-xs text-red-400 font-bold">{errors?.name?.message}</p>
-              )
-            }
+      {/* Form */}
+      <main className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          {/* Name Field */}
+          <div>
+            <label className="block text-sm font-medium">Name</label>
+            <input
+              type="text"
+              {...register("name")}
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm  focus:border-indigo-500"
+              placeholder="Admin name..."
+            />
+            {errors?.name && <p className="text-xs text-red-500 mt-1">{errors?.name?.message}</p>}
           </div>
 
-          <div className="mb-2 space-y-1">
-            <label htmlFor="" className="text-xs font-semibold">Email</label>
-            <input type="email" {...register("email")}
-              className="peer w-full px-4 py-2 text-gray-900 bg-gray-100 border-b-2 border-gray-300 rounded-md focus:outline-none transition duration-300 focus:border-blue-500" placeholder="Admin email..." />
-            {
-              errors?.email && (
-                <p className="text-xs text-red-400 font-bold">{errors?.email?.message}</p>
-              )
-            }
+          {/* Email Field */}
+          <div>
+            <label className="block text-sm font-medium ">Email</label>
+            <input
+              type="email"
+              {...register("email")}
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-colorText"
+              placeholder="Admin email..."
+            />
+            {errors?.email && <p className="text-xs text-red-500 mt-1">{errors?.email?.message}</p>}
           </div>
 
-          <div className="mb-2 space-y-1">
-            <label htmlFor="" className="text-xs font-semibold">Phone</label>
-            <input type="number" {...register("phone")}
-              className="peer w-full px-4 py-2 text-gray-900  bg-gray-100 border-b-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-300" placeholder="Phone..." />
-            {
-              errors?.phone && (
-                <p className="text-xs text-red-400 font-bold">{errors?.phone?.message}</p>
-              )
-            }
+          {/* Phone Field */}
+          <div>
+            <label className="block text-sm font-medium ">Phone</label>
+            <input
+              type="number"
+              {...register("phone")}
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-colorText"
+              placeholder="Phone number..."
+            />
+            {errors?.phone && <p className="text-xs text-red-500 mt-1">{errors?.phone?.message}</p>}
           </div>
 
-          <div className="mb-2 space-y-1">
-            <label htmlFor="" className="text-xs font-semibold">Address</label>
-            <input type="text" {...register("address")}
-              className="peer w-full px-4 py-2 text-gray-900  bg-gray-100 border-b-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-300" placeholder="Address..." />
-            {
-              errors?.address && (
-                <p className="text-xs text-red-400 font-bold">{errors?.address?.message}</p>
-              )
-            }
+          {/* Address Field */}
+          <div>
+            <label className="block text-sm font-medium ">Address</label>
+            <input
+              type="text"
+              {...register("address")}
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-colorText"
+              placeholder="Address..."
+            />
+            {errors?.address && <p className="text-xs text-red-500 mt-1">{errors?.address?.message}</p>}
           </div>
 
-          <div className="mb-2 space-y-1">
-            <label htmlFor="" className="text-xs font-semibold">Password</label>
-            <input type="password" {...register("password")}
-              className="peer w-full px-4 py-2 text-gray-900  bg-gray-100 border-b-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-300" placeholder="Password..." />
-            {
-              errors?.password && (
-                <p className="text-xs text-red-400 font-bold">{errors?.password?.message}</p>
-              )
-            }
-          </div>
+          {/* Password Field */}
+          <div>
+            <label className="block text-sm font-medium ">Password</label>
+            <input
+              type="password"
+              {...register("password")}
+              className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:border-colorText"
+              placeholder="Password..."
+            />
+            {errors?.password && <p className="text-xs text-red-500 mt-1">{errors?.password?.message}</p>}
           </div>
 
-          
-
-          <button type="submit"
-            className=" mt-10 w-full px-4 py-3 font-semibold text-white bg-gradient-to-r from-blue-300 to-indigo-700 hover:bg-hover-gradient rounded-lg  transition duration-300">Create New Admin</button>
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-3 font-semibold  hover:text-white bg-gradient hover:bg-colorBg rounded-md transition duration-300"
+          >
+            Create Admin Account
+          </button>
         </form>
-      </div>
-
+      </main>
     </div>
   )
 }
